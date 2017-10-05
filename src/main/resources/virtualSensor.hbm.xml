@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="com.cloud.entity.VirtualSensor" table="virtual_sensors">
+		<id name="virtualSensorId" type="integer">
+		    <column name="virtual_sensor_id" />
+			<generator class="identity" />
+		</id>
+		<many-to-one name="user" column="user_id" lazy="false" class="com.cloud.entity.User" not-null="true"/>
+		<many-to-one name="vsController" column="vs_controller_id" lazy="false" class="com.cloud.entity.VirtualSensorController"/>
+		<property name="dimensions" type="string"></property>
+		<property name="signalType" type="string"></property>
+		
+		<property name="signalSpeed" type="double"></property>
+		<property name="numOfPins" type="integer"></property>
+		<property name="outputSignal" type="string"></property>
+		<property name="operatingRangeFrom" type="integer"></property>
+		<property name="operatingRangeTo" type="integer"></property>
+		<property name="installationDateTime" type="date"></property>
+		<property name="removalDateTime" type="date"></property>
+		<property name="status" type="string"></property>
+		<property name="totalEarning" type="double"></property>
+		<property name="latitude" type="double"></property>
+		<property name="longitude" type="double"></property>
+		<property name="sensorCity" type="string"></property>
+	</class>
+</hibernate-mapping>
+
